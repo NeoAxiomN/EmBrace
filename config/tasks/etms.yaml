@@ -1,0 +1,174 @@
+task: etms
+default_model: eegnet
+seed: 42
+device: cuda
+visualize: false
+sample_ratio: 1.0
+
+parc:
+  n_dims: 0.8
+
+runtime:
+  mode: auto
+  backend: auto
+  world_size: null
+  master_addr: 127.0.0.1
+  master_port: 29500
+  find_unused_parameters: true
+  timeout_seconds: null
+  debug: false
+
+output:
+  base_dir: outputs
+
+models:
+  eegnet:
+    name: eegnet
+    model_folder_id: null
+    params:
+      dropout: 0.25
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  deformer:
+    name: deformer
+    model_folder_id: null
+    params:
+      dropout: 0.5
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  sera:
+    name: sera
+    model_folder_id: null
+    params:
+      dropout: 0.5
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  sparc:
+    name: sparc
+    model_folder_id: null
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  contra:
+    name: contra
+    model_folder_id: null
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  cnntrans:
+    name: cnntrans
+    model_folder_id: null
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  ffcl:
+    name: ffcl
+    model_folder_id: null
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  sttrans:
+    name: sttrans
+    model_folder_id: null
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  fast:
+    name: fast
+    model_folder_id: null
+    params:
+      dim_cnn: 32
+      dim_token: 96
+      window_len: 200
+      slide_step: 100
+      head: Conv4Layers
+      num_layers: 4
+      num_heads: 8
+      dropout: 0.1
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false

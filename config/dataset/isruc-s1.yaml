@@ -1,0 +1,14 @@
+# isruc-s1.yaml
+name: "isruc-s1"
+path: "../FuseBFM-main/data/ISRUC/precessed_filter_35"
+num_workers: 0
+pin_memory: True
+seq_len: 20
+chans: 6
+patch_num: 30
+task: "multi"
+num_classes: 5
+monitor_key: "kappa"
+scale: 0.01
+
+

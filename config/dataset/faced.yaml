@@ -1,0 +1,12 @@
+# faced.yaml
+name: "faced"
+path: "../FuseBFM-main/data/Faced/processed"
+num_workers: 0
+pin_memory: True
+chans: 32
+patch_num: 10
+task: "multi"
+num_classes: 9
+monitor_key: "kappa"
+scale: 0.01
+

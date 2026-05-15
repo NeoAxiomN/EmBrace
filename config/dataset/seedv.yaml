@@ -1,0 +1,12 @@
+# seedv.yaml
+name: "seedv"
+path: "../FuseBFM-main/data/SEED-V/processed"
+num_workers: 0
+pin_memory: True
+chans: 62
+patch_num: 1
+task: "multi"
+num_classes: 5
+monitor_key: "kappa"
+scale: 0.01
+

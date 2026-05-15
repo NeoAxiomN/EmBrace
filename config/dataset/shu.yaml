@@ -1,0 +1,12 @@
+# shu.yaml
+name: "shu"
+path: "../FuseBFM-main/data/SHU-MI/processed"
+num_workers: 0
+pin_memory: True
+chans: 32
+patch_num: 4
+task: "binary"
+num_classes: 2
+monitor_key: "auroc"
+scale: 0.01
+

@@ -1,0 +1,100 @@
+task: finetune
+default_model: cbramod
+seed: 42
+device: cuda
+visualize: false
+sample_ratio: 1.0
+
+parc:
+  n_dims: 0.8
+
+runtime:
+  mode: auto
+  backend: auto
+  world_size: null
+  master_addr: 127.0.0.1
+  master_port: 29500
+  find_unused_parameters: true
+  timeout_seconds: null
+  debug: false
+
+output:
+  base_dir: outputs
+
+models:
+  cbramod:
+    name: cbramod
+    model_folder_id: null
+    params:
+      use_pretrained_weights: true
+      dropout: 0.1
+      foundation_dir: ../FuseBFM-main/pretrained_weights/cbramod_pretrained_weights.pth
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  codebrain:
+    name: codebrain
+    model_folder_id: null
+    params:
+      use_pretrained_weights: true
+      dropout: 0.1
+      foundation_dir: ../FuseBFM-main/pretrained_weights/EEGSSM_pretrained_weights.pth
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  csbrain:
+    name: csbrain
+    model_folder_id: null
+    params:
+      use_pretrained_weights: true
+      dropout: 0.1
+      foundation_dir: ../FuseBFM-main/pretrained_weights/CSBrain_pretrained_weights.pth
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
+  labram:
+    name: labram
+    model_folder_id: null
+    params:
+      use_pretrained_weights: true
+      dropout: 0.1
+      foundation_dir: ../FuseBFM-main/pretrained_weights/labram_pretrained_weights.pth
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false
