@@ -1,0 +1,60 @@
+task: select
+default_model: embrace
+seed: 42
+device: cuda
+visualize: false
+sample_ratio: 1.0
+
+parc:
+  n_dims: 0.8
+
+runtime:
+  mode: auto
+  backend: auto
+  world_size: null
+  master_addr: 127.0.0.1
+  master_port: 29500
+  find_unused_parameters: true
+  timeout_seconds: null
+  debug: false
+
+output:
+  base_dir: outputs
+
+models:
+  embrace:
+    name: embrace
+    model_folder_id: null
+    target_name: cbramod
+    source_names: [cbramod, labram, codebrain]
+    source_tag: none
+    proj_dim: 256
+    use_shared_bridge: true
+    use_unified_bridge: false
+    cbramod_mode: spatial
+    csbrain_mode: spatial
+    coupled_weight: true
+    fusor_mode: mean_first
+    fusor_temp: 8
+    attn_softmax: false
+    dropout: 0.1
+    weight_ce: 0.6
+    weight_emb: 0.4
+    weight_attn: 0.4
+    foundation_dir_dict:
+      cbramod: ../FuseBFM-main/pretrained_weights/cbramod_pretrained_weights.pth
+      labram: ../FuseBFM-main/pretrained_weights/labram_pretrained_weights.pth
+      codebrain: ../FuseBFM-main/pretrained_weights/EEGSSM_pretrained_weights.pth
+      csbrain: ../FuseBFM-main/pretrained_weights/CSBrain_pretrained_weights.pth
+    trainer:
+      lr: 1e-4
+      lr_backbone: 1e-4
+      batch_size: 64
+      epochs: 50
+      patience: 20
+      clip_grad_norm: 5.0
+      weight_decay: 5e-2
+      label_smoothing: 0.1
+      betas: [0.9, 0.999]
+      eps: 1e-8
+      save_every_epoch: false

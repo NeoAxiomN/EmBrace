@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EmBrace"
+version = "0.1.0"
+description = "EmBrace workflow"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "einops",
+    "lmdb",
+    "matplotlib",
+    "mne",
+    "numba",
+    "numpy",
+    "opt-einsum",
+    "pandas",
+    "pyyaml",
+    "scikit-learn",
+    "scipy",
+    "threadpoolctl",
+    "timm",
+    "torch",
+    "torchinfo",
+    "tqdm",
+]
+
+[tool.setuptools]
+include-package-data = true
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dataset*", "trainer*", "utils*", "embrace*", "model*"]
+namespaces = true

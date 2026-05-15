@@ -1,0 +1,12 @@
+# stress.yaml
+name: "stress"
+path: "../FuseBFM-main/data/mental-arithmetic/processed"
+num_workers: 0
+pin_memory: True
+chans: 20
+patch_num: 5
+task: "binary"
+num_classes: 2
+monitor_key: "auroc"
+scale: 0.01
+
